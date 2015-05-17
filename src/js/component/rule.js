@@ -206,7 +206,8 @@ var Fiddler_Rule = function(){
                 if (!item) {
                     return false;
                 };
-                item = item.split('=');
+                var eq = item.indexOf('=');
+                item = [item.substr(0, eq), item.substr(eq+1, item.length)]
                 var name = item[0].trim().toLowerCase();
                 name = name.substr(0, 1).toUpperCase() + name.substr(1);
                 name = name.replace(/\-(\w)/ig, function(a, b) {
